@@ -10,6 +10,16 @@ three paces and EUR/USD/GBP illustrative budgets. This is not a worldwide bookin
 engine or a claim of upstream feature parity. The bounded catalog deliberately
 leaves unmatched slots free instead of inventing places or repeating activities.
 
+## Public Demo
+
+[Open the public trip planner](https://sushant-ai-demos.pages.dev/TravelBrain/)
+on Cloudflare Pages. It remains accessible when the maintainer's computer is off.
+Planning, browser-local saves and exports work without accounts; costs are
+illustrative. Private SQLite history, live weather and Groq features require
+the separately configured private server, not the public static site.
+[GitHub Pages fallback](https://sushant-nemade.github.io/TravelBrain/) |
+[All project demos](https://sushant-ai-demos.pages.dev/).
+
 ## What Works
 
 - Validated dates, duration, group size, interests and exact minor-unit budgets.
