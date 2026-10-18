@@ -3,13 +3,19 @@ import subprocess
 import sys
 import tarfile
 import tempfile
+import tomllib
 import zipfile
 from pathlib import Path
 
 
 def main():
-    wheel = next(Path("dist").glob("*.whl"))
-    source = next(Path("dist").glob("*.tar.gz"))
+    project = tomllib.loads(Path("pyproject.toml").read_text(encoding="utf-8"))["project"]
+    distribution = project["name"].replace("-", "_")
+    version = project["version"]
+    wheels = list(Path("dist").glob(f"{distribution}-{version}-*.whl"))
+    assert len(wheels) == 1, "Build exactly one wheel for the current project version."
+    wheel = wheels[0]
+    source = Path("dist") / f"{distribution}-{version}.tar.gz"
     with zipfile.ZipFile(wheel) as archive:
         names = archive.namelist()
         for name in (
@@ -22,6 +28,11 @@ def main():
         ):
             assert name in names, name
         assert "src/graph/runner.py" not in names
+        expected_site = {str(path.relative_to("frontend/dist")).replace("\\", "/")
+                 for path in Path("frontend/dist").rglob("*") if path.is_file()}
+        actual_site = {name.removeprefix("src/site/") for name in names if name.startswith("src/site/")}
+        assert actual_site == expected_site, "Bundled UI contains missing or stale files."
+        assert archive.read("src/site/assets/lisbon.jpg") == Path("frontend/public/assets/lisbon.jpg").read_bytes()
         assert not any(name.endswith((".sqlite", ".pem", "/.env")) for name in names)
     with tarfile.open(source) as archive:
         names = archive.getnames()
