@@ -30,6 +30,7 @@ test('changes destination and dates, saves, reloads, reopens and deletes', async
   await page.getByLabel('Days', { exact: true }).fill('3');
   await page.getByRole('button', { name: 'Build itinerary', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Lisbon, Portugal' })).toBeVisible();
+  await expect(page.locator('.image-caption')).toContainText('Utilisateur ouikipedia (CC BY 4.0)');
   await page.getByRole('button', { name: 'Save trip', exact: true }).click();
   await expect(page.getByRole('status')).toContainText('saved in this browser');
   await page.reload();

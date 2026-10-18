@@ -1,6 +1,9 @@
 # Release Evidence
 
 Review date: 2026-10-18. This is a tested reference, not production certification.
+Version 0.2.1 corrects a geographically incorrect Lisbon photo from 0.2.0 using
+a verified Wikimedia Lisbon panorama with visible CC BY 4.0 attribution. Earlier
+release assets are not silently replaced; use the corrected patch release.
 Source baseline: KalyanM45/TravelBrain-Multi-Agent-AI-Travel-Planner at
 59db5bb0f1aeebd593a5114c67f8e619afceb25a, GPLv3 with original history/LICENSE retained.
 

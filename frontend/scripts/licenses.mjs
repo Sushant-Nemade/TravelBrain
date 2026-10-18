@@ -11,8 +11,11 @@ for (const name of ['lucide', 'zod', '@fontsource/dm-sans']) {
 }
 records.push({ name: 'Destination photography', license: 'Unsplash License', url: 'https://unsplash.com/license', sources: {
   paris: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34',
-  lisbon: 'https://images.unsplash.com/photo-1506377585622-bedcbb027afc',
   kyoto: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e',
 } });
+records.push({ name: 'Lisbon: Panorama of Praca do comercio', creator: 'Utilisateur ouikipedia',
+  license: 'CC BY 4.0', licenseURL: 'https://creativecommons.org/licenses/by/4.0/',
+  source: 'https://commons.wikimedia.org/wiki/File:Panorama_of_Pra%C3%A7a_do_comercio.jpg',
+  modifications: 'Wikimedia thumbnail resizing; responsive display cropping, no other image edits.' });
 await mkdir('frontend/public', { recursive: true });
 await writeFile('frontend/public/licenses.json', JSON.stringify(records, null, 2));

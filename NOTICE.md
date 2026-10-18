@@ -19,9 +19,13 @@ are not supported entry points or installed subpackages. No model weights or
 upstream hosted-service accounts are redistributed.
 
 Bundled dependencies and fonts retain their own notices in licenses.json.
-Destination images are downloaded from Unsplash under its license:
-https://unsplash.com/license . Image source URLs are recorded in licenses.json;
-images identify destinations, not bookable products or verified itineraries.
+Paris/Kyoto images are downloaded from Unsplash under its license:
+https://unsplash.com/license . Lisbon uses "Panorama of Praca do comercio" by
+Utilisateur ouikipedia, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/),
+from https://commons.wikimedia.org/wiki/File:Panorama_of_Pra%C3%A7a_do_comercio.jpg .
+It is resized by Wikimedia and cropped responsively in the UI, with no other
+image edits. Exact sources and credits are recorded in licenses.json. Images
+identify destinations, not bookable products or verified itineraries.
 
 Weather, when requested from Open-Meteo, requires source attribution and is
 subject to its terms/CC BY 4.0: https://open-meteo.com/en/terms . Its free hosted

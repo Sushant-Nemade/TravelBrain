@@ -81,7 +81,7 @@ def create_app(store=None, connection_factory=client):
         yield
 
     application = FastAPI(
-        title="TravelBrain Workbench", version="0.2.0", lifespan=lifespan, docs_url=None, redoc_url=None
+        title="TravelBrain Workbench", version="0.2.1", lifespan=lifespan, docs_url=None, redoc_url=None
     )
     application.add_middleware(BodyLimit)
     submissions = deque()
@@ -133,7 +133,7 @@ def create_app(store=None, connection_factory=client):
 
     @application.get("/health")
     async def health():
-        return {"status": "ok", "version": "0.2.0"}
+        return {"status": "ok", "version": "0.2.1"}
 
     @application.get("/api/config")
     async def configuration():
@@ -143,7 +143,7 @@ def create_app(store=None, connection_factory=client):
             and bool(os.getenv("GROQ_API_KEY"))
             and bool(os.getenv("GROQ_MODEL")),
             "weather": os.getenv("TRAVEL_LIVE_WEATHER") == "1",
-            "version": "0.2.0",
+            "version": "0.2.1",
         }
 
     @application.get("/api/catalog")
