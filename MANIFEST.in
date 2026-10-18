@@ -1,0 +1,15 @@
+include LICENSE NOTICE.md README.md pyproject.toml uv.lock app.py
+include Containerfile compose.yaml .env.example .gitattributes
+recursive-include .github *.yml
+recursive-include src *.py
+recursive-include src/site *
+recursive-include frontend *.html *.js *.css *.json *.jpg
+recursive-include scripts *.py *.mjs
+recursive-include tests *.py
+recursive-include docs *.md
+prune frontend/node_modules
+prune frontend/dist
+prune frontend/test-results
+prune frontend/playwright-report
+prune data
+global-exclude *.sqlite *.sqlite-* *.pem *.pyc .env

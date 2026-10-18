@@ -1,0 +1,64 @@
+name: Verify TravelBrain
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {os: ubuntu-latest, python: '3.11'}
+          - {os: ubuntu-latest, python: '3.13'}
+          - {os: windows-latest, python: '3.13'}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.13.0'
+      - run: uv sync --frozen
+      - run: npm --prefix frontend ci --ignore-scripts
+      - run: uv run --frozen pytest -q
+      - run: uv run --frozen ruff check
+      - run: uv run --frozen python -m scripts.build_site
+      - run: node frontend/scripts/licenses.mjs
+      - run: npm --prefix frontend run build
+      - run: npx --prefix frontend playwright install chromium --with-deps
+      - run: npm --prefix frontend test
+      - run: npm --prefix frontend audit
+      - run: uv run --frozen pip-audit
+      - run: uv run --frozen python -m scripts.build_site --package
+      - run: uv run --frozen python -m build
+      - run: uv run --frozen twine check dist/*
+      - run: uv run --frozen python scripts/verify_release.py
+      - uses: actions/upload-artifact@v4
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.13'
+        with:
+          name: travelbrain-reference
+          path: dist/*
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-${{ matrix.os }}-${{ matrix.python }}
+          path: frontend/test-results
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -f Containerfile -t travelbrain-test .
+      - run: docker run --rm travelbrain-test python -c "import os; assert os.getuid() != 0; from src.web import app; print(app.version)"
+      - run: |
+          docker run -d --name travelbrain-test -p 127.0.0.1:8886:8000 travelbrain-test
+          curl --fail --retry 8 --retry-connrefused --retry-delay 1 http://127.0.0.1:8886/health
+          curl --fail http://127.0.0.1:8886/
+          docker stop travelbrain-test

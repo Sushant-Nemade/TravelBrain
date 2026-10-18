@@ -1,0 +1,19 @@
+name: travelbrain
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Containerfile
+    ports:
+      - "127.0.0.1:${APP_PORT:-8886}:8000"
+    environment:
+      TRAVEL_API_TOKEN: "${TRAVEL_API_TOKEN:-}"
+      TRAVEL_AI_ENABLED: "${TRAVEL_AI_ENABLED:-0}"
+      TRAVEL_LIVE_WEATHER: "${TRAVEL_LIVE_WEATHER:-0}"
+      GROQ_API_KEY: "${GROQ_API_KEY:-}"
+      GROQ_MODEL: "${GROQ_MODEL:-}"
+    volumes:
+      - trips:/app/data
+    restart: unless-stopped
+volumes:
+  trips:

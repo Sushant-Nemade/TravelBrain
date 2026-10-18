@@ -47,6 +47,13 @@ Dockerfile
 docker-compose*.yml
 .dockerignore
 
-# Docs
-LICENSE
-README.md
+# Private state and frontend build caches
+data/
+*.sqlite
+*.sqlite-*
+*.pem
+frontend/node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+src/site/
