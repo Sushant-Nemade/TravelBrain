@@ -59,6 +59,10 @@ jobs:
       - run: docker run --rm travelbrain-test python -c "import os; assert os.getuid() != 0; from src.web import app; print(app.version)"
       - run: |
           docker run -d --name travelbrain-test -p 127.0.0.1:8886:8000 travelbrain-test
-          curl --fail --retry 8 --retry-connrefused --retry-delay 1 http://127.0.0.1:8886/health
+          curl --fail --retry 8 --retry-all-errors --connect-timeout 3 --max-time 5 --retry-max-time 45 --retry-delay 1 http://127.0.0.1:8886/health
           curl --fail http://127.0.0.1:8886/
           docker stop travelbrain-test
+      - if: always()
+        run: |
+          docker logs travelbrain-test || true
+          docker rm -f travelbrain-test || true
