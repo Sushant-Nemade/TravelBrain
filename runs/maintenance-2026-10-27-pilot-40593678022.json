@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "repository": "Sushant-Nemade/TravelBrain",
+  "source_sha": "1bc9849b74c3eb55dca1d79fa34e0b5fd0e36d4a",
+  "berlin_date": "2026-10-27",
+  "run_id": "40593678022",
+  "status": "blocked-execution",
+  "stages": [
+    {
+      "name": "baseline-unit-and-integration",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests"
+      ],
+      "exit_code": 0,
+      "junit": {
+        "cases": 27,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 27
+      },
+      "evidence_sha256": "f8f1c4abaffc234f43534ca32ff285fc02bf95eccb99085d4ddd5234d326c9d4"
+    },
+    {
+      "name": "baseline-integration",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_api.py"
+      ],
+      "exit_code": 0,
+      "junit": {
+        "cases": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 4
+      },
+      "evidence_sha256": "56fd9231501906432c33ced129de7c4c23fcd9655cd2a24afa00d70f9dd7faf2"
+    }
+  ],
+  "model": {
+    "name": "Qwen2.5-Coder-1.5B-Instruct-GGUF",
+    "revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+    "sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+    "license": "Apache-2.0",
+    "paid_api_requests": 0
+  },
+  "policy": {
+    "human_merge_required": true,
+    "automatic_production_merge": false,
+    "max_repairs": 2,
+    "max_generation_calls": 6,
+    "per_call_token_limit": 1700,
+    "max_pipeline_seconds": 2700
+  },
+  "load": {
+    "repository": "Sushant-Nemade/TravelBrain",
+    "scope": "Owned local regression journeys; Docker network isolation is enforced by the controller, not this script",
+    "profile": "offline local itinerary API lifecycle",
+    "node": "tests/test_api.py::test_actual_api_lifecycle",
+    "requested_workflows": 1000,
+    "observed": 1000,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "concurrency": 1,
+    "duration_seconds": 29.243438198,
+    "cpu_process_seconds": 29.942254884,
+    "journey_p95_ms": 28.000000000000004,
+    "journey_p99_ms": 31.0,
+    "http_request_count": null,
+    "limitations": "Serial repeated regression journeys, NOT simultaneous users/browsers or a production capacity SLA. Test-defined mocks/fixtures remain in effect. HTTP requests are not independently counted.",
+    "passed": true
+  },
+  "detail": "ValueError: Model did not return JSON; bounded output prefix='{\\n  \"status\": \"no_change\",\\n  \"summary\": \"The function `truncate` already meets the requirements of being a small correctness/edge-case improvement. It simply converts the input value to a string and clips it to the specified limit. There are no additional improvements needed.\",\\n  \"old\": \"def truncate(value: Any, limit: int) -> str:\\\\n    \\\\\"\\\\\"\\\\\"Stringify a tool payload and clip it so prompts stay within budget.\\\\\"\\\\\"\\\\\"\\\\n\\\\n    return str(value)[:limit]\",\\n  \"new\": \"def truncate(value: Any, limit: int) -> str:\\\\n    \\\\\"\\\\\"\\\\\"Stringify a tool payload and clip it so prompts stay within budget.\\\\\"\\\\\"\\\\\"\\\\n\\\\n   '",
+  "duration_seconds": 429.184509776,
+  "generated_at_utc": "2026-10-27T22:25:07.547835+00:00",
+  "published_at_utc": "2026-10-27T22:25:28.605577+00:00",
+  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40593678022"
+}
