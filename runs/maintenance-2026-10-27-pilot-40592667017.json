@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "repository": "Sushant-Nemade/TravelBrain",
+  "source_sha": "2fd4d1f427baea80fe4b70d1a4bbbcc52a48b31f",
+  "berlin_date": "2026-10-27",
+  "run_id": "40592667017",
+  "status": "blocked-execution",
+  "stages": [],
+  "model": {
+    "name": "Qwen2.5-Coder-1.5B-Instruct-GGUF",
+    "revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+    "sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+    "license": "Apache-2.0",
+    "paid_api_requests": 0
+  },
+  "policy": {
+    "human_merge_required": true,
+    "automatic_production_merge": false,
+    "max_repairs": 2,
+    "max_generation_calls": 6,
+    "per_call_token_limit": 1700,
+    "max_pipeline_seconds": 2700
+  },
+  "load": {
+    "status": "not_run",
+    "reason": "No reviewed isolated workload adapter for this project"
+  },
+  "detail": "FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/TravelBrain/TravelBrain/work/evidence/baseline-unit-and-integration.xml'",
+  "duration_seconds": 22.432741739999997,
+  "generated_at_utc": "2026-10-27T22:10:51.417701+00:00",
+  "published_at_utc": "2026-10-27T22:11:08.634206+00:00",
+  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40592667017"
+}
