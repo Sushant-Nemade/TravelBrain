@@ -30,7 +30,7 @@ jobs:
           node-version: '24'
       - uses: astral-sh/setup-uv@v6
         with:
-          version: '0.13.0'
+          version: '0.13.4'
       - run: uv sync --frozen
       - run: npm --prefix frontend ci --ignore-scripts
       - run: uv run --frozen python -m scripts.build_site
