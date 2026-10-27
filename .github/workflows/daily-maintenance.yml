@@ -17,7 +17,7 @@ jobs:
       contents: write
       pull-requests: write
       actions: write
-    uses: Sushant-Nemade/autonomous-quality-redteam-harness/.github/workflows/portfolio-maintenance.yml@4c865d2d11bd3f695708dccc4abc4de9eead9755
+    uses: Sushant-Nemade/autonomous-quality-redteam-harness/.github/workflows/portfolio-maintenance.yml@07c01d783939af295020eda1f5a11505a0d98ff7
     with:
-      controller_ref: 4c865d2d11bd3f695708dccc4abc4de9eead9755
+      controller_ref: 07c01d783939af295020eda1f5a11505a0d98ff7
       pilot: ${{ github.event_name == 'workflow_dispatch' && inputs.pilot }}
