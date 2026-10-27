@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "repository": "Sushant-Nemade/TravelBrain",
-  "source_sha": "1bc9849b74c3eb55dca1d79fa34e0b5fd0e36d4a",
+  "source_sha": "161653e941a7f941da1012c71595f8e5a0b3dae4",
   "berlin_date": "2026-10-27",
-  "run_id": "40593678022",
-  "status": "blocked-execution",
+  "run_id": "40596897772",
+  "status": "no-safe-change",
   "stages": [
     {
       "name": "baseline-unit-and-integration",
@@ -22,7 +22,7 @@
         "skipped": 0,
         "passed": 27
       },
-      "evidence_sha256": "f8f1c4abaffc234f43534ca32ff285fc02bf95eccb99085d4ddd5234d326c9d4"
+      "evidence_sha256": "09f890833a71505da677fbd865ba104b9907793005a6ae37b88f01f0a56994a4"
     },
     {
       "name": "baseline-integration",
@@ -40,7 +40,7 @@
         "skipped": 0,
         "passed": 4
       },
-      "evidence_sha256": "56fd9231501906432c33ced129de7c4c23fcd9655cd2a24afa00d70f9dd7faf2"
+      "evidence_sha256": "1a95d2754aa98ee25c7569bb6730156071625183c2ab727455352214a45e9570"
     }
   ],
   "model": {
@@ -54,7 +54,7 @@
     "human_merge_required": true,
     "automatic_production_merge": false,
     "max_repairs": 2,
-    "max_generation_calls": 6,
+    "max_generation_calls": 7,
     "per_call_token_limit": 1700,
     "max_pipeline_seconds": 2700
   },
@@ -69,17 +69,41 @@
     "errors": 0,
     "skipped": 0,
     "concurrency": 1,
-    "duration_seconds": 29.243438198,
-    "cpu_process_seconds": 29.942254884,
+    "duration_seconds": 29.013256726999998,
+    "cpu_process_seconds": 30.139445926999997,
     "journey_p95_ms": 28.000000000000004,
-    "journey_p99_ms": 31.0,
+    "journey_p99_ms": 30.009999999999998,
     "http_request_count": null,
     "limitations": "Serial repeated regression journeys, NOT simultaneous users/browsers or a production capacity SLA. Test-defined mocks/fixtures remain in effect. HTTP requests are not independently counted.",
     "passed": true
   },
-  "detail": "ValueError: Model did not return JSON; bounded output prefix='{\\n  \"status\": \"no_change\",\\n  \"summary\": \"The function `truncate` already meets the requirements of being a small correctness/edge-case improvement. It simply converts the input value to a string and clips it to the specified limit. There are no additional improvements needed.\",\\n  \"old\": \"def truncate(value: Any, limit: int) -> str:\\\\n    \\\\\"\\\\\"\\\\\"Stringify a tool payload and clip it so prompts stay within budget.\\\\\"\\\\\"\\\\\"\\\\n\\\\n    return str(value)[:limit]\",\\n  \"new\": \"def truncate(value: Any, limit: int) -> str:\\\\n    \\\\\"\\\\\"\\\\\"Stringify a tool payload and clip it so prompts stay within budget.\\\\\"\\\\\"\\\\\"\\\\n\\\\n   '",
-  "duration_seconds": 429.184509776,
-  "generated_at_utc": "2026-10-27T22:25:07.547835+00:00",
-  "published_at_utc": "2026-10-27T22:25:28.605577+00:00",
-  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40593678022"
+  "planning": {
+    "decision": {
+      "status": "candidate",
+      "summary": "The function does not handle the case where the value is not a string."
+    },
+    "provenance": {
+      "role": "planning",
+      "engine": "llama.cpp CPU, no-network container",
+      "max_output_tokens": 1700,
+      "model_revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+      "model_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+      "response_sha256": "458227bcb96d7855497e2bfaea8c6c42c45e88fdd734f0b7e50fcc28df883f07",
+      "response_bytes": 132
+    }
+  },
+  "author": {
+    "role": "author",
+    "engine": "llama.cpp CPU, no-network container",
+    "max_output_tokens": 1700,
+    "model_revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+    "model_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+    "response_sha256": "0deb82cd63d9c5d029ce9a0e818367a8d567cd430e726638204c716b351a308a",
+    "response_bytes": 290
+  },
+  "detail": "The function already handles the case where the value is not a string.",
+  "duration_seconds": 313.428320952,
+  "generated_at_utc": "2026-10-27T22:48:42.950089+00:00",
+  "published_at_utc": "2026-10-27T22:49:04.242453+00:00",
+  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40596897772"
 }
