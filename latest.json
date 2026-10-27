@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "repository": "Sushant-Nemade/TravelBrain",
-  "source_sha": "161653e941a7f941da1012c71595f8e5a0b3dae4",
-  "berlin_date": "2026-10-27",
-  "run_id": "40596897772",
+  "source_sha": "223480d60b08ede38e133d033f7c0670a6c060cb",
+  "berlin_date": "2026-10-28",
+  "run_id": "40602640097",
   "status": "no-safe-change",
   "stages": [
     {
@@ -22,7 +22,7 @@
         "skipped": 0,
         "passed": 27
       },
-      "evidence_sha256": "09f890833a71505da677fbd865ba104b9907793005a6ae37b88f01f0a56994a4"
+      "evidence_sha256": "14dba8dfbee0b6acf2aadc037ac925c2c41d66e98d3a4af0014805f5b479cc1f"
     },
     {
       "name": "baseline-integration",
@@ -40,7 +40,7 @@
         "skipped": 0,
         "passed": 4
       },
-      "evidence_sha256": "1a95d2754aa98ee25c7569bb6730156071625183c2ab727455352214a45e9570"
+      "evidence_sha256": "61fa28dadfd6601bc1d8bfb5ccacd1af73bdb5dee4abf6a28e868eb456882dd4"
     }
   ],
   "model": {
@@ -69,10 +69,10 @@
     "errors": 0,
     "skipped": 0,
     "concurrency": 1,
-    "duration_seconds": 29.013256726999998,
-    "cpu_process_seconds": 30.139445926999997,
-    "journey_p95_ms": 28.000000000000004,
-    "journey_p99_ms": 30.009999999999998,
+    "duration_seconds": 33.48593125400001,
+    "cpu_process_seconds": 34.686176378,
+    "journey_p95_ms": 40.99999999999999,
+    "journey_p99_ms": 126.01,
     "http_request_count": null,
     "limitations": "Serial repeated regression journeys, NOT simultaneous users/browsers or a production capacity SLA. Test-defined mocks/fixtures remain in effect. HTTP requests are not independently counted.",
     "passed": true
@@ -102,8 +102,8 @@
     "response_bytes": 290
   },
   "detail": "The function already handles the case where the value is not a string.",
-  "duration_seconds": 313.428320952,
-  "generated_at_utc": "2026-10-27T22:48:42.950089+00:00",
-  "published_at_utc": "2026-10-27T22:49:04.242453+00:00",
-  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40596897772"
+  "duration_seconds": 340.24596918000003,
+  "generated_at_utc": "2026-10-27T23:37:05.839502+00:00",
+  "published_at_utc": "2026-10-27T23:37:22.011244+00:00",
+  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40602640097"
 }
