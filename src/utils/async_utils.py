@@ -26,4 +26,6 @@ def bump_llm_calls(state: dict, count: int = 1) -> int:
 def truncate(value: Any, limit: int) -> str:
     """Stringify a tool payload and clip it so prompts stay within budget."""
 
+    if limit < 0:
+        raise ValueError("Negative truncate limit is not allowed")
     return str(value)[:limit]
