@@ -4,7 +4,7 @@
   "source_sha": "985474bece390577b049a0cbe28d1a1829b76de5",
   "berlin_date": "2026-10-28",
   "run_id": "40621360289",
-  "status": "merged-awaiting-pages-deployment",
+  "status": "deployed",
   "stages": [
     {
       "name": "baseline-unit-and-integration",
@@ -211,7 +211,7 @@
       }
     }
   ],
-  "detail": "Main CI verified; exact-SHA Pages deployment is pending",
+  "detail": "Protected automatic merge, complete current-main CI and exact-SHA Pages deployment all succeeded",
   "duration_seconds": 439.481755661,
   "generated_at_utc": "2026-10-28T02:38:34.194548+00:00",
   "candidate_sha": "870d2fc00f610678f20845568960f3336262173a",
@@ -224,7 +224,7 @@
   "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40621360289",
   "merged_sha": "c79ed99baa98235fa0717b803a1c32feb93228cc",
   "independent_ci_run": "40622204667",
-  "delivery_updated_at_utc": "2026-10-28T09:13:23.815271+00:00",
+  "delivery_updated_at_utc": "2026-10-28T09:15:14.832497+00:00",
   "main_verification_dispatched": true,
   "descendant_main_sha": "a5c793ca3e912dbeb8405edfdfaef78017ead0ee",
   "verified_sha": "a5c793ca3e912dbeb8405edfdfaef78017ead0ee",
