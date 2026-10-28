@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "repository": "Sushant-Nemade/TravelBrain",
+  "source_sha": "346f062225095647c9b68442574a39f8f6aa23da",
+  "berlin_date": "2026-10-28",
+  "run_id": "40618858914",
+  "status": "rejected-after-review",
+  "stages": [
+    {
+      "name": "baseline-unit-and-integration",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests"
+      ],
+      "exit_code": 0,
+      "junit": {
+        "cases": 27,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 27
+      },
+      "evidence_sha256": "8b259b9d80d69aa2c246066cda4e0310059cc7572af598a187c46a6bf8a5a067"
+    },
+    {
+      "name": "baseline-integration",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_api.py"
+      ],
+      "exit_code": 0,
+      "junit": {
+        "cases": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 4
+      },
+      "evidence_sha256": "6937c5f57444c626f8b8badb509b014c8660e5f1f1b69598ebfc97f66a9f6b29"
+    },
+    {
+      "name": "red-regression",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_daily_20261028.py"
+      ],
+      "exit_code": 1,
+      "junit": {
+        "cases": 2,
+        "failures": 1,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 1
+      },
+      "evidence_sha256": "4dbf7974a94f7d0da08148ba1a99478404a72247e0be5a7dfaef4560c2660d3a"
+    },
+    {
+      "name": "green-regression-0",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_daily_20261028.py"
+      ],
+      "exit_code": 0,
+      "junit": {
+        "cases": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 2
+      },
+      "evidence_sha256": "c14961f0e9794e320f3eb962a3471cbebd25f2d0fcbba40cc9eff99f7a4bf6dc"
+    },
+    {
+      "name": "green-regression-1",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_daily_20261028.py"
+      ],
+      "exit_code": 0,
+      "junit": {
+        "cases": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 2
+      },
+      "evidence_sha256": "e444d9002535ccd38832a110c54de8ea16d42c5dd2230d78c30bb72a9d6b592e"
+    },
+    {
+      "name": "green-regression-2",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_daily_20261028.py"
+      ],
+      "exit_code": 0,
+      "junit": {
+        "cases": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 2
+      },
+      "evidence_sha256": "eac7c36bcdccb15cf76e63241d6b58f95dbe442743c974e3fcc290b7473c2210"
+    }
+  ],
+  "model": {
+    "name": "Qwen2.5-Coder-1.5B-Instruct-GGUF",
+    "revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+    "sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+    "license": "Apache-2.0",
+    "paid_api_requests": 0
+  },
+  "policy": {
+    "human_merge_required": false,
+    "automatic_production_merge": true,
+    "max_repairs": 2,
+    "max_generation_calls": 7,
+    "per_call_token_limit": 1700,
+    "max_pipeline_seconds": 2700,
+    "independent_ci_required": true
+  },
+  "load": {
+    "repository": "Sushant-Nemade/TravelBrain",
+    "scope": "Owned local regression journeys; Docker network isolation is enforced by the controller, not this script",
+    "profile": "offline local itinerary API lifecycle",
+    "node": "tests/test_api.py::test_actual_api_lifecycle",
+    "requested_workflows": 1000,
+    "observed": 1000,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "concurrency": 1,
+    "duration_seconds": 16.924613443999995,
+    "cpu_process_seconds": 17.367522343,
+    "journey_p95_ms": 16.0,
+    "journey_p99_ms": 25.0,
+    "http_request_count": null,
+    "limitations": "Serial repeated regression journeys, NOT simultaneous users/browsers or a production capacity SLA. Test-defined mocks/fixtures remain in effect. HTTP requests are not independently counted.",
+    "passed": true
+  },
+  "queued_task": "Reject a negative truncate limit with ValueError instead of returning most of the text. Keep existing str(value) conversion and behavior for zero/positive limits. Fix only truncate; its return str(value)[:limit] currently has no negative guard.",
+  "planning": {
+    "decision": {
+      "status": "candidate",
+      "summary": "Reject a negative truncate limit with ValueError instead of returning most of the text. Keep existing str(value) conversion and behavior for zero/positive limits. Fix only truncate; its return str(value)[:limit] currently has no negative guard."
+    },
+    "provenance": {
+      "role": "executed-regression",
+      "source": "actual RED against unchanged production source"
+    }
+  },
+  "author": {
+    "role": "author",
+    "engine": "llama.cpp CPU, no-network container",
+    "max_output_tokens": 1700,
+    "model_revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+    "model_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+    "response_sha256": "a7fa319565e0c5d7d0372824d0ace586866a974a4a7515ec7105dacd189a0a62",
+    "response_bytes": 1090
+  },
+  "reviews": [
+    {
+      "attempt": 0,
+      "response": {
+        "approved": false,
+        "findings": [
+          "The function `truncate` does not have a negative guard for the `limit` parameter, which can lead to unexpected behavior or errors if the limit is negative."
+        ]
+      },
+      "provenance": {
+        "role": "security-review-0",
+        "engine": "llama.cpp CPU, no-network container",
+        "max_output_tokens": 1700,
+        "model_revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+        "model_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+        "response_sha256": "a08f52b6038f4b083bee0f5754847dc0f6398e75dc3d2c417ca853d7d064bfa5",
+        "response_bytes": 220
+      }
+    },
+    {
+      "attempt": 1,
+      "response": {
+        "approved": false,
+        "findings": [
+          "The function `truncate` does not have a negative guard for the `limit` parameter, which can lead to unexpected behavior or errors if the limit is negative."
+        ]
+      },
+      "provenance": {
+        "role": "security-review-1",
+        "engine": "llama.cpp CPU, no-network container",
+        "max_output_tokens": 1700,
+        "model_revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+        "model_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+        "response_sha256": "a08f52b6038f4b083bee0f5754847dc0f6398e75dc3d2c417ca853d7d064bfa5",
+        "response_bytes": 220
+      }
+    },
+    {
+      "attempt": 2,
+      "response": {
+        "approved": false,
+        "findings": [
+          "The function `truncate` does not have a negative guard for the `limit` parameter, which can lead to unexpected behavior or errors if the limit is negative."
+        ]
+      },
+      "provenance": {
+        "role": "security-review-2",
+        "engine": "llama.cpp CPU, no-network container",
+        "max_output_tokens": 1700,
+        "model_revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+        "model_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+        "response_sha256": "a08f52b6038f4b083bee0f5754847dc0f6398e75dc3d2c417ca853d7d064bfa5",
+        "response_bytes": 220
+      }
+    }
+  ],
+  "repairs": [
+    {
+      "role": "repair-0",
+      "engine": "llama.cpp CPU, no-network container",
+      "max_output_tokens": 1700,
+      "model_revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+      "model_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+      "response_sha256": "2921f757c17c1ab3013f060eb80d0e4b9083f64f612427cd64bf797419414704",
+      "response_bytes": 989
+    },
+    {
+      "role": "repair-1",
+      "engine": "llama.cpp CPU, no-network container",
+      "max_output_tokens": 1700,
+      "model_revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+      "model_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+      "response_sha256": "2921f757c17c1ab3013f060eb80d0e4b9083f64f612427cd64bf797419414704",
+      "response_bytes": 989
+    }
+  ],
+  "detail": "Repair budget exhausted; no candidate was published",
+  "duration_seconds": 273.862027277,
+  "generated_at_utc": "2026-10-28T02:10:32.638575+00:00",
+  "published_at_utc": "2026-10-28T02:10:49.002729+00:00",
+  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40618858914"
+}
