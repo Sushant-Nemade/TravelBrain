@@ -4,7 +4,7 @@
   "source_sha": "985474bece390577b049a0cbe28d1a1829b76de5",
   "berlin_date": "2026-10-28",
   "run_id": "40621360289",
-  "status": "pull-request-awaiting-ci-auto-delivery",
+  "status": "merged-awaiting-main-verification",
   "stages": [
     {
       "name": "baseline-unit-and-integration",
@@ -211,7 +211,7 @@
       }
     }
   ],
-  "detail": "Reject a negative truncate limit with ValueError instead of returning most of the text. Keep existing str(value) conversion and behavior for zero/positive limits. Fix only truncate; its return str(value)[:limit] currently has no negative guard.",
+  "detail": "Exact candidate passed every independent CI job and bounded-scope validation; merged without routine human approval",
   "duration_seconds": 439.481755661,
   "generated_at_utc": "2026-10-28T02:38:34.194548+00:00",
   "candidate_sha": "870d2fc00f610678f20845568960f3336262173a",
@@ -221,5 +221,8 @@
   "independent_ci_dispatched": true,
   "ci_workflow": "verify.yml",
   "published_at_utc": "2026-10-28T02:39:18.664642+00:00",
-  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40621360289"
+  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40621360289",
+  "merged_sha": "c79ed99baa98235fa0717b803a1c32feb93228cc",
+  "independent_ci_run": "40622204667",
+  "delivery_updated_at_utc": "2026-10-28T02:51:43.012308+00:00"
 }
