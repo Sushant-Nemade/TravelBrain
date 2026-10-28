@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "repository": "Sushant-Nemade/TravelBrain",
-  "source_sha": "5b0b3156e1bbd47d9b26b33dc53f9aae81b008a8",
+  "source_sha": "405ff1dbfd4e947970e7530aeda4ddf085d59750",
   "berlin_date": "2026-10-28",
-  "run_id": "40612315803",
-  "status": "no-safe-change",
+  "run_id": "40614400392",
+  "status": "blocked-unresolved-regression",
   "stages": [
     {
       "name": "baseline-unit-and-integration",
@@ -22,7 +22,7 @@
         "skipped": 0,
         "passed": 27
       },
-      "evidence_sha256": "e14b8e4cc808170bb9e9c488b63a5ca1d17c4d20f0f3219a9958e0c00a98b7fe"
+      "evidence_sha256": "f11f6923def0ef941d64b3f14cd22e04f9e6006bc0fb7d04cdf132721ace8529"
     },
     {
       "name": "baseline-integration",
@@ -40,7 +40,25 @@
         "skipped": 0,
         "passed": 4
       },
-      "evidence_sha256": "cf421a5ba34a9090ba857af51f424947599b7d7777cc6a22f14bacbf98b04efa"
+      "evidence_sha256": "04c4414b89e130fdf07794c7620badf03fbee1170e6d478db7179bfd10c8e6ae"
+    },
+    {
+      "name": "red-regression",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_daily_20261028.py"
+      ],
+      "exit_code": 1,
+      "junit": {
+        "cases": 2,
+        "failures": 1,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 1
+      },
+      "evidence_sha256": "e6a914df62dbbf7c2ce06bf80683c1c55607fdcc53642543080b7e5be87f357c"
     }
   ],
   "model": {
@@ -70,28 +88,23 @@
     "errors": 0,
     "skipped": 0,
     "concurrency": 1,
-    "duration_seconds": 20.879605749999996,
-    "cpu_process_seconds": 21.438568506,
-    "journey_p95_ms": 20.0,
-    "journey_p99_ms": 23.01,
+    "duration_seconds": 33.74873580900001,
+    "cpu_process_seconds": 34.955215538,
+    "journey_p95_ms": 33.0,
+    "journey_p99_ms": 39.019999999999996,
     "http_request_count": null,
     "limitations": "Serial repeated regression journeys, NOT simultaneous users/browsers or a production capacity SLA. Test-defined mocks/fixtures remain in effect. HTTP requests are not independently counted.",
     "passed": true
   },
-  "queued_task": "Reject a negative truncate limit with ValueError instead of returning most of the text. Keep existing str(value) conversion and behavior for zero/positive limits. A negative budget is invalid; verify with pytest.raises(ValueError). If this exact guard is already implemented, return no_change. Do not edit any other function.",
+  "queued_task": "Reject a negative truncate limit with ValueError instead of returning most of the text. Keep existing str(value) conversion and behavior for zero/positive limits. Fix only truncate; its return str(value)[:limit] currently has no negative guard.",
   "planning": {
     "decision": {
       "status": "candidate",
-      "summary": "The function does not check if the limit is negative and raises a ValueError if it is. This is a small correction that can be made to ensure the function behaves as expected."
+      "summary": "Reject a negative truncate limit with ValueError instead of returning most of the text. Keep existing str(value) conversion and behavior for zero/positive limits. Fix only truncate; its return str(value)[:limit] currently has no negative guard."
     },
     "provenance": {
-      "role": "planning",
-      "engine": "llama.cpp CPU, no-network container",
-      "max_output_tokens": 1700,
-      "model_revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
-      "model_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
-      "response_sha256": "fc1251074fd28127ff8adb5d32496a708582a018f5ffba87b78a7c9f8f8c0074",
-      "response_bytes": 232
+      "role": "executed-regression",
+      "source": "actual RED against unchanged production source"
     }
   },
   "author": {
@@ -100,12 +113,12 @@
     "max_output_tokens": 1700,
     "model_revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
     "model_sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
-    "response_sha256": "6658bca6511a224d021dc9629fa48e9d3df5ca37a6fa1bd1e380382086ebb928",
-    "response_bytes": 725
+    "response_sha256": "4c4ee97c6acb2f14bd50f4fa61366e7092c9c5cd15879ab3fcaafef2f2c6847b",
+    "response_bytes": 869
   },
-  "detail": "The function already checks if the limit is negative and raises a ValueError if it is. No change is needed.",
-  "duration_seconds": 266.359933103,
-  "generated_at_utc": "2026-10-28T01:05:00.707237+00:00",
-  "published_at_utc": "2026-10-28T01:05:18.161893+00:00",
-  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40612315803"
+  "detail": "The approved function already handles negative truncate limits by raising a ValueError, which is the correct behavior.",
+  "duration_seconds": 346.340902214,
+  "generated_at_utc": "2026-10-28T01:26:32.483065+00:00",
+  "published_at_utc": "2026-10-28T01:26:51.067568+00:00",
+  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40614400392"
 }

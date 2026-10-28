@@ -1,11 +1,11 @@
 # Portfolio Maintenance
 
 - Project: Sushant-Nemade/TravelBrain
-- Source SHA: `5b0b3156e1bbd47d9b26b33dc53f9aae81b008a8`
+- Source SHA: `405ff1dbfd4e947970e7530aeda4ddf085d59750`
 - Berlin date: 2026-10-28
-- Outcome: **no-safe-change**
-- Detail: The function already checks if the limit is negative and raises a ValueError if it is. No change is needed.
-- Evidence: https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40612315803
+- Outcome: **blocked-unresolved-regression**
+- Detail: The approved function already handles negative truncate limits by raising a ValueError, which is the correct behavior.
+- Evidence: https://github.com/Sushant-Nemade/TravelBrain/actions/runs/40614400392
 - Proposed PR: none
 - Publication policy: authorized unattended merge only after independent CI and trusted eligibility checks.
 - A no-safe-change/rejected/blocked result is not a claimed improvement.
