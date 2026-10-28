@@ -34,7 +34,8 @@ jobs:
       - run: uv run --frozen python -m scripts.build_site
       - run: node frontend/scripts/licenses.mjs
       - run: npm --prefix frontend run build
-      - run: npx --prefix frontend playwright install chromium --with-deps
+      - run: node frontend/node_modules/@playwright/test/cli.js install chromium --with-deps
+        timeout-minutes: 5
       - run: npm --prefix frontend test
       - run: npm --prefix frontend audit
       - run: uv run --frozen pip-audit
