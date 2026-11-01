@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "repository": "Sushant-Nemade/TravelBrain",
+  "source_sha": "a5c793ca3e912dbeb8405edfdfaef78017ead0ee",
+  "berlin_date": "2026-11-01",
+  "run_id": "41329065527",
+  "status": "no-safe-change",
+  "stages": [
+    {
+      "name": "baseline-unit-and-integration",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests"
+      ],
+      "exit_code": 0,
+      "junit": {
+        "cases": 29,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 29
+      },
+      "evidence_sha256": "70449fdfe7880c7e80f06f41b8d6b57726cff04a7a72d1be3693d9faf9d8f07c"
+    },
+    {
+      "name": "baseline-integration",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_api.py"
+      ],
+      "exit_code": 0,
+      "junit": {
+        "cases": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 4
+      },
+      "evidence_sha256": "1c4bc369ba973717a5ce7d639e4f38354d32d29b7a5d62eb7f1f2b37637d9ef7"
+    },
+    {
+      "name": "red-regression",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/test_daily_20261101.py"
+      ],
+      "exit_code": 0,
+      "junit": {
+        "cases": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 2
+      },
+      "evidence_sha256": "92b776b285d95dcd4dec3bfcffe37b973de1e13b7fc71b50f2c0067e2d604697"
+    }
+  ],
+  "model": {
+    "name": "Qwen2.5-Coder-1.5B-Instruct-GGUF",
+    "revision": "f86cb2c1fa58255f8052cc32aeede1b7482d4361",
+    "sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046",
+    "license": "Apache-2.0",
+    "paid_api_requests": 0
+  },
+  "policy": {
+    "human_merge_required": false,
+    "automatic_production_merge": true,
+    "max_repairs": 2,
+    "max_generation_calls": 7,
+    "per_call_token_limit": 1700,
+    "max_pipeline_seconds": 2700,
+    "independent_ci_required": true
+  },
+  "load": {
+    "repository": "Sushant-Nemade/TravelBrain",
+    "scope": "Owned local regression journeys; Docker network isolation is enforced by the controller, not this script",
+    "profile": "offline local itinerary API lifecycle",
+    "node": "tests/test_api.py::test_actual_api_lifecycle",
+    "requested_workflows": 1000,
+    "observed": 1000,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "concurrency": 1,
+    "duration_seconds": 28.183485680000018,
+    "cpu_process_seconds": 28.853952999,
+    "journey_p95_ms": 25.999999999999996,
+    "journey_p99_ms": 29.999999999999996,
+    "http_request_count": null,
+    "limitations": "Serial repeated regression journeys, NOT simultaneous users/browsers or a production capacity SLA. Test-defined mocks/fixtures remain in effect. HTTP requests are not independently counted.",
+    "passed": true
+  },
+  "queued_task": "Reject a negative truncate limit with ValueError instead of returning most of the text. Keep existing str(value) conversion and behavior for zero/positive limits. Fix only truncate; its return str(value)[:limit] currently has no negative guard.",
+  "detail": "The approved regression already passes; no source change is needed",
+  "duration_seconds": 319.413586117,
+  "generated_at_utc": "2026-11-01T17:05:27.955210+00:00",
+  "published_at_utc": "2026-11-01T17:05:45.248708+00:00",
+  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/41329065527"
+}
