@@ -2,8 +2,8 @@
   "schema_version": 1,
   "repository": "Sushant-Nemade/TravelBrain",
   "source_sha": "a5c793ca3e912dbeb8405edfdfaef78017ead0ee",
-  "berlin_date": "2026-11-08",
-  "run_id": "42502201659",
+  "berlin_date": "2026-11-15",
+  "run_id": "43741656347",
   "status": "no-safe-change",
   "stages": [
     {
@@ -22,7 +22,7 @@
         "skipped": 0,
         "passed": 29
       },
-      "evidence_sha256": "757938eddd7ad8bbfea42ab077c5791abf6728e1abbce02a3f1cfc6200a01f32"
+      "evidence_sha256": "11efad026046276d08e3b59cb5209350cab7dc94ee3511852cc73fc4e266e93c"
     },
     {
       "name": "baseline-integration",
@@ -40,7 +40,7 @@
         "skipped": 0,
         "passed": 4
       },
-      "evidence_sha256": "5daf17da59bd344aa27feba63c407b5bb6a19a444dd2e6e2a38ec35299ecd3d5"
+      "evidence_sha256": "dbf35567ccd2d39819c690a0d73b27ec11cdf70eb8b59e2eca9bc94d30d362a1"
     },
     {
       "name": "red-regression",
@@ -48,7 +48,7 @@
         "python",
         "-m",
         "pytest",
-        "tests/test_daily_20261108.py"
+        "tests/test_daily_20261115.py"
       ],
       "exit_code": 0,
       "junit": {
@@ -58,7 +58,7 @@
         "skipped": 0,
         "passed": 2
       },
-      "evidence_sha256": "75a42e52347e33226ed613688c73c195f6323deeeffd21751eb10acc94b961f6"
+      "evidence_sha256": "21aa975d41bd40fc2064ebc58a2c9ba67f08ecfc6a0dfe8c8e6a984cfa45ecd2"
     }
   ],
   "model": {
@@ -88,18 +88,18 @@
     "errors": 0,
     "skipped": 0,
     "concurrency": 1,
-    "duration_seconds": 27.390993198000018,
-    "cpu_process_seconds": 28.046847954,
-    "journey_p95_ms": 25.999999999999996,
-    "journey_p99_ms": 28.000000000000004,
+    "duration_seconds": 20.182662204999986,
+    "cpu_process_seconds": 20.666965936,
+    "journey_p95_ms": 19.0,
+    "journey_p99_ms": 22.0,
     "http_request_count": null,
     "limitations": "Serial repeated regression journeys, NOT simultaneous users/browsers or a production capacity SLA. Test-defined mocks/fixtures remain in effect. HTTP requests are not independently counted.",
     "passed": true
   },
   "queued_task": "Reject a negative truncate limit with ValueError instead of returning most of the text. Keep existing str(value) conversion and behavior for zero/positive limits. Fix only truncate; its return str(value)[:limit] currently has no negative guard.",
   "detail": "The approved regression already passes; no source change is needed",
-  "duration_seconds": 331.858065774,
-  "generated_at_utc": "2026-11-08T17:00:48.607793+00:00",
-  "published_at_utc": "2026-11-08T17:01:07.270374+00:00",
-  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/42502201659"
+  "duration_seconds": 322.96323215,
+  "generated_at_utc": "2026-11-15T17:38:02.996805+00:00",
+  "published_at_utc": "2026-11-15T17:38:19.055743+00:00",
+  "run_url": "https://github.com/Sushant-Nemade/TravelBrain/actions/runs/43741656347"
 }
